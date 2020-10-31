@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles/settl.module.css';
-import GameBox from './GameBox.jsx';
+import dynamic from 'next/dynamic';
+const GameBox = dynamic(() => import('./GameBox.jsx'));
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ export default class Main extends React.Component {
   };
   render() {
     return (
-      <div className={styles.gamebox}>
+      <div className={styles.container}>
         <h1 className={styles.header}>Settl-it
         </h1>
         <div className={styles.bar}> span of games

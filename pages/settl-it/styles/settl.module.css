@@ -3,14 +3,14 @@
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-columns: 15% 70% 15%;
+  grid-template-columns: 20% 60% 20%;
 }
 .user {
   border: thin solid black;
 }
 /*//////////////////////////////
 // MAIN CONTAINER /////////// */
-.gamebox {
+.container {
   border: thin solid black;
   display: grid;
   grid-template-rows: 20% 10% 60% 10%;
@@ -21,15 +21,45 @@
   text-align: center;
   margin: 0;
 }
-
+/*  */
 .bar {
   border: thin solid black;
 }
-
-.game {
-  border: thin solid black
+/*  */
+.gameBox {
+  border: thin solid black;
+  display: grid;
+  grid-template-rows: 15% 75% 10%;
 }
 
+.scoreBar {
+  border: thin solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2%;
+  font-size: 10vh;
+  color: red;
+}
+
+.game {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 25vh;
+}
+
+.gameButton {
+  border-top: thin solid black;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+/*  */
 .back {
   border: thin solid black;
 }
