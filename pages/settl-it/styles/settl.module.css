@@ -1,0 +1,35 @@
+.outter {
+  border: thin solid black;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+}
+.user {
+  border: thin solid black;
+}
+/*//////////////////////////////
+// MAIN CONTAINER /////////// */
+.gamebox {
+  border: thin solid black;
+  display: grid;
+  grid-template-rows: 20% 10% 60% 10%;
+}
+
+.header {
+  border: thin solid black;
+  text-align: center;
+  margin: 0;
+}
+
+.bar {
+  border: thin solid black;
+}
+
+.game {
+  border: thin solid black
+}
+
+.back {
+  border: thin solid black;
+}
