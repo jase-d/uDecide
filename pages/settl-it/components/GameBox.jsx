@@ -9,17 +9,36 @@ export default class GameBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      number: null,
+      number: '0000',
       button: 'START'
     };
+    this.getNumber = this.numberSequence.bind(this);
   };
+
+  numberSequence(second = 0) {
+  var count = 0;
+  const go = () => {
+    console.log(count)
+    count++;
+      this.setState({
+        number: Math.floor(Math.random() * 10000)
+      });
+    if (count >= 100) {
+      return;
+    } else {
+      window.requestAnimationFrame(go);
+    }
+  };
+  return go()
+  };
+
   render() {
     return (
       <div className={styles.gameBox}>
         <ScoreBar/>
-        <Game/>
+        <Game number={this.state.number}/>
         <div className={styles.gameButton}>
-          <button>{this.state.button}</button>
+          <button onClick={() => this.getNumber()}>{this.state.button}</button>
         </div>
       </div>
     );

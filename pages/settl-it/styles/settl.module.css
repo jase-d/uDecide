@@ -5,9 +5,21 @@
   display: grid;
   grid-template-columns: 20% 60% 20%;
 }
-.user {
+
+.playerContainer {
+  border: thin solid black;
+  display: grid;
+  grid-template-rows: 55% 15% 30%;
+}
+
+.info {
   border: thin solid black;
 }
+
+.playerInput {
+  border: thin solid black;
+}
+
 /*//////////////////////////////
 // MAIN CONTAINER /////////// */
 .container {

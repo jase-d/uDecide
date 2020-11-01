@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './styles/settl.module.css';
 import dynamic from 'next/dynamic';
-
 const Main = dynamic(() => import('./components/Main.jsx'));
+const Player1 = dynamic(() => import('./components/Player1.jsx'));
+const Player2 = dynamic(() => import('./components/Player2.jsx'));
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -15,9 +17,9 @@ export default class App extends React.Component {
 
     return(
       <div className={styles.outter}>
-          <div id="ply1">ply1</div>
+          <Player1 />
           <Main />
-          <div id="ply2">ply2</div>
+          <Player2 />
       </div>
     );
   };
