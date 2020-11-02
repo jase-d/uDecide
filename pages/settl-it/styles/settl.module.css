@@ -14,10 +14,20 @@
 
 .info {
   border: thin solid black;
+  padding: 0 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .playerInput {
   border: thin solid black;
+  display: flex;
+  
+}
+
+.playerPicks {
+  width: 10%;
 }
 
 /*//////////////////////////////

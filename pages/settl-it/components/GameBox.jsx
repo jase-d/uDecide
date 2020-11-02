@@ -21,7 +21,7 @@ export default class GameBox extends React.Component {
     console.log(count)
     count++;
       this.setState({
-        number: Math.floor(Math.random() * 10000)
+        number: Math.floor(Math.random() * (10000 - 1111) + 1111)
       });
     if (count >= 100) {
       return;
