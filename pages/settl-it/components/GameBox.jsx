@@ -10,7 +10,8 @@ export default class GameBox extends React.Component {
     super(props);
     this.state = {
       number: '0000',
-      button: 'START'
+      button: 'START',
+      gameReady: this.props.gameReady
     };
     this.getNumber = this.numberSequence.bind(this);
   };
@@ -32,13 +33,15 @@ export default class GameBox extends React.Component {
   return go()
   };
 
+
+
   render() {
     return (
       <div className={styles.gameBox}>
         <ScoreBar/>
-        <Game number={this.state.number}/>
+        <Game  number={this.state.number}/>
         <div className={styles.gameButton}>
-          <button onClick={() => this.getNumber()}>{this.state.button}</button>
+          <button id={styles.gameButton} onClick={() => this.getNumber()}>{this.state.button}</button>
         </div>
       </div>
     );

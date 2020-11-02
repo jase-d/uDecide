@@ -87,6 +87,10 @@
   width: 80%;
 }
 
+#gameButton {
+  display: none;
+}
+
 /*  */
 .back {
   border: thin solid black;

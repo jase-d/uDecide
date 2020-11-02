@@ -9,6 +9,8 @@ export default class Main extends React.Component {
     this.state = {
       game: null
     };
+
+
   };
   render() {
     return (
