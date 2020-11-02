@@ -11,9 +11,9 @@ export default class Player2 extends React.Component {
 
   confirm() {
     const inputs = document.getElementsByClassName(styles.player2Picks);
+    console.log(inputs, 'inputs')
     const values = Array.from(inputs).map((input) => Number(input.value));
-    console.log(inputs, values);
-    this.props.isReady(2)
+    this.props.isReady(2, values)
   }
   render() {
     return (
@@ -22,11 +22,14 @@ export default class Player2 extends React.Component {
         <div></div>
         <div className={styles.playerInput}>
           <div>
-            <p>Guess Four Digits</p>
-            <p>1-9 Each</p>
+            <p>Guess Four Digits 0-9 Each</p>
+            <p>Closest guesses throughout WINS</p>
           </div>
           <div>
             <input className={styles.player2Picks} type="number"></input><input className={styles.player2Picks} type="number"></input><input className={styles.player2Picks} type="number"></input><input className={styles.player2Picks} type="number"></input>
+          </div>
+          <div id={styles.scoreKeeper2}>
+            {''}
           </div>
           <button onClick={this.confirm}>CONFIRM</button>
         </div>
