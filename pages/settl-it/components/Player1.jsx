@@ -48,7 +48,7 @@ export default class Player1 extends React.Component {
   render() {
     return (
       <div className={styles.playerContainer}>
-        <Player1Info />
+        <Player1Info info={this.props.info} />
         <div>
           <form className={styles.taskContainer} onSubmit={this.handleTaskSubmit}>
             <label className={styles.label}>If I Lose I Will

@@ -9,6 +9,11 @@
   grid-template-columns: 20% 60% 20%;
 }
 
+.login {
+  display: grid;
+  grid-template-rows: 80% 80% 40%;
+}
+
 .playerContainer {
   border: thin solid black;
   display: grid;

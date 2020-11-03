@@ -1,14 +1,20 @@
 import React from 'react';
 import styles from '../styles/settl.module.css';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+dayjs.extend(relativeTime)
 
-const Player1Info = () => {
+const Player1Info = ({info}) => {
 
+  console.log(info[1])
   const player = {
-    username: 'notjase',
+    username: info[0].username,
     wins: 1076,
     rating: 10.5,
-    todos: [{todo: 'Has to wash the dishes', from: 'GraceK0NG'}, {todo: 'He owes me a back massage!', from: 'GraceKONG'}, {todo: 'KICKSOMEASS', from: 'anon'}]
+    todos: info[1]
   }
+
+  console.log(dayjs(info[1][0]['finishby']).fromNow())
 
   return (
     <div className={styles.info}>
@@ -25,8 +31,8 @@ const Player1Info = () => {
         {player.todos.map((task, i) => {
           return (
           <div className={styles.todos} key={i}>
-            <div>{task.todo}</div>
-            <div>-{task.from}</div>
+            <div>{task.task} {dayjs(task.finishby).fromNow()}</div>
+            <div>-{task.iou}</div>
           </div>
           )
         })}

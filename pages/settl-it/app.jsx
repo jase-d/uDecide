@@ -1,7 +1,10 @@
 import React from 'react';
 import styles from './styles/settl.module.css';
+import axios from 'axios';
+
 import dynamic from 'next/dynamic';
 const Main = dynamic(() => import('./components/Main.jsx'));
+const Login1 = dynamic(() => import('./components/Login1.jsx'));
 const Player1 = dynamic(() => import('./components/Player1.jsx'));
 const Player2 = dynamic(() => import('./components/Player2.jsx'));
 
@@ -9,7 +12,8 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null,
+      user1: false,
+      user2: false,
       ply1Ready: false,
       ply1Guess: null,
       ply2Ready: false,
@@ -25,7 +29,11 @@ export default class App extends React.Component {
     this.isReady = this.isReady.bind(this);
     this.compare = this.compare.bind(this);
     this.agreeToTask = this.agreeToTask.bind(this);
+    this.logIn = this.logIn.bind(this);
   };
+
+
+
 
   async compare(gameValues) {
     await this.setState({ gameValues: gameValues, finishRound: !this.state.finishRound });
@@ -90,11 +98,21 @@ export default class App extends React.Component {
     this.setState({ task });
   };
 
+  logIn(info) {
+    this.setState({ user1: info });
+    this.player1();
+  };
+
+  player1() {
+    return this.state.user1 !== false ?
+      <Player1 info={this.state.user1} agree={this.agreeToTask} gameValues={this.state.gameValues} isReady={this.isReady} /> :
+      <Login1 logIn={this.logIn}/>
+  };
+
   render() {
-    console.log(this.state.task)
     return(
       <div className={styles.outter}>
-          <Player1 agree={this.agreeToTask} gameValues={this.state.gameValues} isReady={this.isReady} />
+          {this.player1()}
           <Main score1={this.state.score1} score2={this.state.score2} compare={this.compare} />
           <Player2 agree={this.agreeToTask} gameValues={this.state.gameValues} isReady={this.isReady}/>
       </div>
