@@ -20,12 +20,9 @@ export default class GameBox extends React.Component {
   var count = 0;
   var numberIndex = 0;
   const go = async () => {
-    console.log(count)
     count++;
-
     var numbers = this.state.number
     numbers[numberIndex] = Math.floor(Math.random() * 10);
-
       this.setState({
         number: numbers
       });

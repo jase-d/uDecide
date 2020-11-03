@@ -20,7 +20,6 @@ export default class Player2 extends React.Component {
 
   confirm() {
     const inputs = document.getElementsByClassName(styles.player2Picks);
-    console.log(inputs, 'inputs')
     const values = Array.from(inputs).map((input) => Number(input.value));
     this.props.isReady(2, values)
   }

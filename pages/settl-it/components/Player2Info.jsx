@@ -4,7 +4,7 @@ import styles from '../styles/settl.module.css';
 const Player2Info = () => {
 
   const player = {
-    username: 'notGrace',
+    username: 'anon',
     wins: 101076,
     rating: 11.5,
     todos: [{todo: 'Has to wash the dishes', from: 'notjase'}, {todo: 'He owes me a back massage!', from: 'notjase'}, {todo: 'KEEPBEINGAMAZING', from: 'anon'}]

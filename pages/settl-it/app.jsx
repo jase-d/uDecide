@@ -20,12 +20,12 @@ export default class App extends React.Component {
       ply2Guess: null,
       finishRound: false,
       gameValues: [0,0,0,0],
-      roundWinner: null,
       score1: '',
       score2: '',
       task1: {},
       task2: {}
     };
+    this.roundLoser = null;
     this.isReady = this.isReady.bind(this);
     this.compare = this.compare.bind(this);
     this.agreeToTask = this.agreeToTask.bind(this);
@@ -55,11 +55,16 @@ export default class App extends React.Component {
     if (this.state.score1.length === 5 || this.state.score2.length === 5) {
       if (this.state.score1.length === 5) {
         alert('PLAYER 1 WINS');
-        this.forceUpdate();
+        this.roundLoser = this.state.user2;
       } else if (this.state.score2.length === 5) {
         alert('PLAYER 2 WINS');
-        this.forceUpdate();
+        this.roundLoser = this.state.task1;
+        this.roundLoser.iou = 'anon';
+        this.roundLoser.user_id = this.state.user1[0]['user_id'];
+        alert(this.state.task1);
       };
+      console.log(this.state.task1);
+      const confirmation = await axios.post(`http://localhost:3000/api/router`, { body: this.roundLoser })
       this.setState({score1: '', score2: ''});
     };
   };
@@ -67,9 +72,7 @@ export default class App extends React.Component {
   gameReady() {
     const button = document.getElementById(styles.gameButton);
     setTimeout(() => {
-      console.log(this.state.ply1Ready, this.state.ply2Ready)
       if (this.state.ply1Ready && this.state.ply2Ready) {
-        console.log(button)
         button.style.display = 'block';
         this.setState({ gameReady: !this.state.gameReady })
       };
@@ -77,7 +80,6 @@ export default class App extends React.Component {
   };
 
   isReady(player, values) {
-    console.log(values)
     const ply1 = this.state.ply1Ready;
     const ply2 = this.state.ply2Ready;
     if (player === 1) {
@@ -94,8 +96,11 @@ export default class App extends React.Component {
     this.gameReady();
   };
 
-  agreeToTask(task) {
-    this.setState({ task });
+  agreeToTask(task1, task2) {
+    if (task1) {
+      this.setState({ task1 });
+    }
+    console.log(this.state.task1)
   };
 
   logIn(info) {
@@ -110,6 +115,7 @@ export default class App extends React.Component {
   };
 
   render() {
+    console.log(this.state.task1)
     return(
       <div className={styles.outter}>
           {this.player1()}

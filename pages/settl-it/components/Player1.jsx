@@ -32,8 +32,7 @@ export default class Player1 extends React.Component {
     e.preventDefault()
     this.props.agree({
       task: this.state.taskVal,
-      timeStamp: this.state.dateVal,
-      username: this.state.user
+      finishby: this.state.dateVal,
     });
   };
 

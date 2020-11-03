@@ -5,8 +5,6 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime)
 
 const Player1Info = ({info}) => {
-
-  console.log(info[1])
   const player = {
     username: info[0].username,
     wins: 1076,
@@ -14,13 +12,9 @@ const Player1Info = ({info}) => {
     todos: info[1]
   }
 
-  console.log(dayjs(info[1][0]['finishby']).fromNow())
-
   return (
     <div className={styles.info}>
-      <div>Username
         <div>{player.username}</div>
-      </div>
       <div>Wins
         <div>{player.wins}</div>
       </div>
@@ -38,7 +32,7 @@ const Player1Info = ({info}) => {
         })}
       </div>
     </div>
-  )
+  );
 };
 
 export default Player1Info;

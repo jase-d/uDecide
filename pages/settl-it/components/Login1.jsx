@@ -73,6 +73,7 @@ export default class Login1 extends React.Component {
         password: '',
       }
     };
+    this.info = { username: '', password: '' }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleChange.bind(this);
     this.getCredentials = this.getCredentials.bind(this);
@@ -80,9 +81,7 @@ export default class Login1 extends React.Component {
 
   async getCredentials (e) {
     e.preventDefault();
-    console.log('hello')
-    const loginInfo = this.state.info;
-    const userInfo = await axios.get('/api/router', {loginInfo})
+    const userInfo = await axios.get(`/api/router?info=${this.info.username}-${this.info.password}`);
     this.props.logIn(userInfo.data);
   };
 
@@ -90,8 +89,10 @@ export default class Login1 extends React.Component {
   handleChange(e) {
     if (e.target.name === 'user') {
       this.setState({ info: {username: e.target.value}});
+      this.info.username = e.target.value;
     } else {
       this.setState({ info: {password: e.target.value}});
+      this.info.password = e.target.value;
     };
   };
 
