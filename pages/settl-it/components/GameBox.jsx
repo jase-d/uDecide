@@ -50,7 +50,7 @@ export default class GameBox extends React.Component {
   render() {
     return (
       <div className={styles.gameBox}>
-        <ScoreBar/>
+        <ScoreBar score1={this.props.score1} score2={this.props.score2}/>
         <Game  number={this.state.number}/>
         <div className={styles.gameButton}>
           <button id={styles.gameButton} onClick={() => this.getNumber()}>{this.state.button}</button>

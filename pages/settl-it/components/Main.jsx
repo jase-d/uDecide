@@ -19,7 +19,7 @@ export default class Main extends React.Component {
         </h1>
         <div className={styles.bar}> span of games
         </div>
-        <GameBox compare={this.props.compare} />
+        <GameBox score1={this.props.score1} score2={this.props.score2} compare={this.props.compare} />
         <button className={styles.back}>BACK</button>
       </div>
     );
