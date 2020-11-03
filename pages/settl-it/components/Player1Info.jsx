@@ -24,7 +24,7 @@ const Player1Info = () => {
       <div>To Do's
         {player.todos.map((task, i) => {
           return (
-          <div>
+          <div className={styles.todos} key={i}>
             <div>{task.todo}</div>
             <div>-{task.from}</div>
           </div>
