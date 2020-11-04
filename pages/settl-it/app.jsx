@@ -5,6 +5,7 @@ import axios from 'axios';
 import dynamic from 'next/dynamic';
 const Main = dynamic(() => import('./components/Main.jsx'));
 const Login1 = dynamic(() => import('./components/Login1.jsx'));
+const Login2 = dynamic(() => import('./components/Login2.jsx'));
 const Player1 = dynamic(() => import('./components/Player1.jsx'));
 const Player2 = dynamic(() => import('./components/Player2.jsx'));
 
@@ -79,6 +80,23 @@ export default class App extends React.Component {
     }, 100);
   };
 
+  agreeToTask(task1, task2) {
+    if (task1) {
+      this.setState({ task1 });
+    }
+    console.log(this.state.task1)
+  };
+
+  logIn(info, player) {
+    if (player === 1) {
+      this.setState({ user1: info });
+      this.player1();
+    } else {
+      this.setState({ user2: info });
+      this.player2();
+    }
+  };
+
   isReady(player, values) {
     const ply1 = this.state.ply1Ready;
     const ply2 = this.state.ply2Ready;
@@ -96,22 +114,16 @@ export default class App extends React.Component {
     this.gameReady();
   };
 
-  agreeToTask(task1, task2) {
-    if (task1) {
-      this.setState({ task1 });
-    }
-    console.log(this.state.task1)
-  };
-
-  logIn(info) {
-    this.setState({ user1: info });
-    this.player1();
-  };
-
   player1() {
     return this.state.user1 !== false ?
       <Player1 info={this.state.user1} agree={this.agreeToTask} gameValues={this.state.gameValues} isReady={this.isReady} /> :
       <Login1 logIn={this.logIn}/>
+  };
+
+  player2() {
+    return this.state.user2 !== false ?
+      <Player2 info={this.state.user2} agree={this.agreeToTask} gameValues={this.state.gameValues} isReady={this.isReady} /> :
+      <Login2 logIn={this.logIn}/>
   };
 
   render() {
@@ -120,7 +132,7 @@ export default class App extends React.Component {
       <div className={styles.outter}>
           {this.player1()}
           <Main score1={this.state.score1} score2={this.state.score2} compare={this.compare} />
-          <Player2 agree={this.agreeToTask} gameValues={this.state.gameValues} isReady={this.isReady}/>
+          {this.player2()}
       </div>
     );
   };

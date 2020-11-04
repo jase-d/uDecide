@@ -10,14 +10,37 @@
 }
 
 .login {
+  margin-top: 2%;
   display: grid;
-  grid-template-rows: 80% 80% 40%;
+  grid-template-rows: 40% 30% 40% 30% 20%;
+  font-size: x-large;
+  text-align: center;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.loginContainer {
+  color: #363636;
+  border: thin solid black;
+  background-color: #e2ccab;
+}
+
+.submitLogin {
+  margin: 0 auto;
+  margin-top: 2%;
+  width: 35%;
+  height: fit-content;
+  font-size: x-large;
 }
 
 .playerContainer {
+  color: #363636;
   border: thin solid black;
+  box-sizing: border-box;
   display: grid;
   grid-template-rows: 39% 32% 29%;
+  background-color: #e2ccab;
+  box-shadow: inset 0 0 6px black;
 }
 
 .info {
@@ -27,16 +50,62 @@
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
+  font-size: large;
+  box-shadow: inset 0 0 6px black;
+}
+
+.userInfo {
+  font-size: large;
+  display: grid;
+  grid-template-rows: 60% 40%;
+}
+
+.username {
+  font-size: x-large;
+}
+
+.userBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todoCount {
+  color: #e85a50;
+  font-size: x-large;
+}
+
+.todoContainer {
+  border: medium solid #727272;
+  border-radius: 5px;
+  background-color: #eae8dc;
+
+  height: 26vh;
+
+  box-shadow: inset 0 0 1px black;
+  overflow: auto;
 }
 
 .todos {
-  border: thin solid black;
+  border: thin solid #9e8e8c;
+  background-color: #e85a50;
+  border-radius: 5px;
+  color: black;
+  font-size: large;
+  width: 95%;
+  margin: 3% auto;
+  margin-bottom: 5%;
+  box-shadow: -1px 4px 6px #5f2020;
+}
+
+.taskOutter {
+  box-shadow: -1px 4px 5px #383333;
 }
 
 .taskContainer {
   margin-top: 8%;
   display: grid;
   grid-template-rows:60% 60% 20%;
+  font-size: x-large;
 }
 
 #task1 {
@@ -72,8 +141,12 @@
 }
 
 .acceptTask {
-  width: 28%;
+  width: 30%;
   margin: 0 auto;
+  font-size: large;
+  background-color: #e85a50;
+  color: black;
+  border: thin solid rgb(75, 75, 75);
 }
 
 .label {
@@ -84,11 +157,20 @@
 }
 
 .playerInput {
+  margin-top: 1%;
   border: thin solid black;
+  border-left: none;
+  border-right: none;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
+  font-size: x-large;
+  box-sizing: border-box;
+  max-height: 26.5vh;
+  box-shadow: -1px 4px 6px #413b3b;
+  padding-top: 1%;
+  line-height: 90%;
 }
 
 .player1Picks {
@@ -96,6 +178,8 @@
   padding: 5%;
   padding-right: 1%;
   font-size: 3vh;
+  margin: 0 2.5%;
+  color: #e85a50;
 }
 
 .player2Picks {
@@ -103,12 +187,41 @@
   padding: 5%;
   padding-right: 1%;
   font-size: 3vh;
+  margin: 0 2.5%;
+  color: #e85a50;
+}
+
+
+.player1Picks:focus {
+  animation: none;
+  outline: none;
+}
+
+.player2Picks:focus {
+  animation: none;
+  outline: none;
+}
+
+#scoreKeeper1 {
+  display: block;
+  letter-spacing: .1rem;
+}
+
+#scoreKeeper2 {
+  display: block;
+  letter-spacing: .1rem;
+}
+
+.confirm {
+  font-size: x-large;
 }
 
 /*//////////////////////////////
 // MAIN CONTAINER /////////// */
 
 .container {
+  background-color: #8e8d88;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   border: thin solid black;
   display: grid;
   grid-template-rows: 20% 10% 60% 10%;
@@ -122,40 +235,47 @@
 }
 
 .header {
-  border: thin solid black;
+  font-size: 22vh;
   text-align: center;
+  color: #e85a50;
   margin: 0;
 }
-/*  */
+
 .bar {
   border: thin solid black;
+  background-color: #e85a50;
+  display: flex;
+  justify-content: space-between;
 }
-/*  */
+
+.options {
+  border: thin solid black;
+  margin: 1%;
+  width: 6%;
+  background-image: linear-gradient(45deg, #f7f7f7, #ffb682);
+  box-shadow: inset 0 0 10px black;
+  text-align: center;
+  font-size: 3em;
+  vertical-align: middle;
+  color: #e85a50;
+}
+
 .gameBox {
   border: thin solid black;
   display: grid;
+  background-color: #c5c6c8;
   grid-template-rows: 15% 75% 10%;
 }
 
 .scoreBar {
-  border: thin solid black;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
   align-items: center;
   padding: 0 2%;
   font-size: 10vh;
-  color: red;
+  color: #e85a50;
 }
 
-#scoreKeeper1 {
-  display: block;
-  letter-spacing: .1rem;
-}
-
-#scoreKeeper2 {
-  display: block;
-  letter-spacing: .1rem;
-}
 
 #score1 {
   color: 'red';
@@ -189,9 +309,21 @@
 
 #gameButton {
   display: none;
+  font-size: xx-large;
 }
 
-/*  */
+.backContainer {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
 .back {
-  border: thin solid black;
+  border: medium solid black;
+  background-color: #e85a50;
+  margin: 0 auto;
+  padding: 1%;
+  font-size: xx-large;
+  text-align: center;
+  letter-spacing: 150%;
 }

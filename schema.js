@@ -1,11 +1,14 @@
 CREATE TABLE settlit (
   user_id serial PRIMARY KEY,
-  username VARCHAR(100),
+  username VARCHAR(100) UNIQUE,
   password VARCHAR(20)
 );
 
 INSERT INTO settlit (username, password)
 VALUES ('notjase', 'keeppushing');
+
+INSERT INTO settlit (username, password)
+VALUES ('anon', 'dontkeeppushing');
 
 CREATE TABLE settlit_tasks (
   user_id INT,
@@ -22,6 +25,9 @@ INSERT INTO settlit_tasks (user_id, task, finishby, iou)
 VALUES (1, 'He owes me a back massage!', '11/10/2020 9:19 PM', 'notGrace')
 ON CONFLICT DO NOTHING;
 
+INSERT INTO settlit_tasks (user_id, task, finishby, iou)
+VALUES (3, 'Finish my toy problems', '11/13/2020 9:19 PM', 'hrcommunity')
+ON CONFLICT DO NOTHING;
 
 SELECT * FROM settlit, settlit_tasks
 WHERE settlit.user_id = 1 AND settlit_tasks.user_id = 1;

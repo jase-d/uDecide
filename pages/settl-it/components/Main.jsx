@@ -15,13 +15,14 @@ export default class Main extends React.Component {
         <div id={styles.headContainer}>
           <h1 className={styles.header}>Settl-it</h1>
         </div>
-        <div className={styles.bar}> span of games
+        <div className={styles.bar}>
+    {['+', 'x', '-', 'x', '+'].map((i, index) => <div key={index} className={styles.options}>{i}</div>)}
         </div>
         <GameBox score1={this.props.score1} score2={this.props.score2} compare={this.props.compare} />
-        <div>
+        <div className={styles.backContainer}>
           <Link href="/">
-            <a>
-              <button className={styles.back}>HOME</button>
+            <a className={styles.back}>
+              <button className={styles.back}>| - HOME - |</button>
             </a>
           </Link>
         </div>

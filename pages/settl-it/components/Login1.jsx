@@ -1,60 +1,3 @@
-// import React from 'react';
-// import styles from '../styles/settl.module.css';
-// import useSWR from 'swr';
-
-
-// const fetcher = url => axios.get(url).then((res) => res.data);
-
-// export default function Login1 () {
-
-
-//   async function getCredentials(e) {
-//     e.preventDefault();
-//     console.log(e.target)
-//     const {data, error} = await useSWR(`http://localhost:3000/api/router?usr=${this.state.info.username}&pwd=${this.state.info.password}`, fetcher);
-//     alert(data, error);
-//     if (data) {
-//       return <div>hello world</div>
-//     } else {
-//       return <div>goodbye world</div>
-//     };
-//   };
-
-//   return (
-//     <div>
-//       <form onSubmit={getCredentials} className={styles.login}>
-//         <label>User Name
-//           <input name="user" type="text" required></input>
-//         </label>
-//         <label>Password
-//           <input name="password" type="text" required></input>
-//         </label>
-//         <input type="submit" value="Login"></input>
-//       </form>
-//     </div>
-//   );
-//   };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React from 'react';
 import styles from '../styles/settl.module.css';
 import useSWR from 'swr';
@@ -82,7 +25,7 @@ export default class Login1 extends React.Component {
   async getCredentials (e) {
     e.preventDefault();
     const userInfo = await axios.get(`/api/router?info=${this.info.username}-${this.info.password}`);
-    this.props.logIn(userInfo.data);
+    this.props.logIn(userInfo.data, 1);
   };
 
 
@@ -98,25 +41,15 @@ export default class Login1 extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.loginContainer}>
         <form onSubmit={this.getCredentials} className={styles.login}>
-          <label>User Name
+          <label>User Name</label>
             <input name="user" type="text" onChange={this.handleChange} value={this.state.info.username} required></input>
-          </label>
-          <label>Password
-            <input name="password" type="text" onChange={this.handleChange} value={this.state.info.password} required></input>
-          </label>
-          <input type="submit" value="Login"></input>
+          <label>Password</label>
+            <input name="password" type="password" onChange={this.handleChange} value={this.state.info.password} required></input>
+          <input className={styles.submitLogin} type="submit" value="Login"></input>
         </form>
       </div>
     );
   };
 };
-
-// const {data, error} = await useSWR(`http://localhost:3000/api/router?usr=${this.state.info.username}&pwd=${this.state.info.password}`, fetcher);
-// alert(data, error);
-// if (data) {
-//   return <div>hello world</div>
-// } else {
-//   return <div>goodbye world</div>
-// };

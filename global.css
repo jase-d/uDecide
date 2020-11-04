@@ -1,3 +1,47 @@
 body {
   margin: 0 auto;
+  text-shadow: -1px -1px rgb(252, 207, 207), 0 1px 1px 0 black, 0 -1px rgb(243, 236, 236);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+@keyframes input-focus {
+  from {
+    border: medium solid gray;
+    background-color: #f0efec;
+  }
+  to {
+    border: medium solid rgb(75, 75, 75);
+    background-color: #f3f3f1;
+    outline: none;
+  }
+}
+
+input {
+  background-color: #f1f0e8;
+  border: medium solid gray;
+  border-radius: 3px;
+  color: #e85a50;
+  font-size: 2.75vh;
+}
+
+input:focus {
+  animation-name: input-focus;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  outline: none;
+  border: medium solid gray;
+  border-radius: 3px;
+  color: #e85a50;
+}
+
+button {
+  background-color: #e85a50;
+  border: medium solid rgb(75, 75, 75);
+}
+
+button:focus {
+  animation-name: button-focus;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  outline: none;
 }

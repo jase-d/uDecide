@@ -48,7 +48,7 @@ export default class Player1 extends React.Component {
     return (
       <div className={styles.playerContainer}>
         <Player1Info info={this.props.info} />
-        <div>
+        <div className={styles.taskOutter}>
           <form className={styles.taskContainer} onSubmit={this.handleTaskSubmit}>
             <label className={styles.label}>If I Lose I Will
               <input id={styles.task1} type="textarea" value={this.state.taskVal} onChange={this.handleChange}></input>
@@ -56,7 +56,7 @@ export default class Player1 extends React.Component {
             <label className={styles.label}>Before
               <input id={styles.by1} type="datetime-local" value={this.state.dateVal} onChange={this.handleChange}></input>
             </label>
-            <input className={styles.acceptTask} type="submit" value="Accept"></input>
+            <input className={styles.acceptTask} type="submit" value="ACCEPT"></input>
           </form>
         </div>
         <div className={styles.playerInput}>
@@ -68,9 +68,9 @@ export default class Player1 extends React.Component {
             <input className={styles.player1Picks} type="number"></input><input className={styles.player1Picks} type="number"></input><input className={styles.player1Picks} type="number"></input><input className={styles.player1Picks} type="number"></input>
           </div>
           <div id={styles.scoreKeeper1}>
-            {''}
+            {'- - - -'}
           </div>
-          <button onClick={this.confirm}>CONFIRM</button>
+          <button className={styles.confirm} onClick={this.confirm}>CONFIRM</button>
         </div>
       </div>
     );
