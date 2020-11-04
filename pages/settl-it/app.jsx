@@ -33,9 +33,6 @@ export default class App extends React.Component {
     this.logIn = this.logIn.bind(this);
   };
 
-
-
-
   async compare(gameValues) {
     await this.setState({ gameValues: gameValues, finishRound: !this.state.finishRound });
     var keep1 = document.getElementById(styles.scoreKeeper1);

@@ -1,0 +1,8 @@
+.gameSelection {
+  border: thin solid black;
+  border-radius: 9px;
+  width: 15%;
+  height: 10vh;
+  text-align: center;
+  background-color: rgb(149, 236, 236);
+}
