@@ -1,11 +1,13 @@
 const pgp = require('pg-promise')();
 pgp.pg.defaults.max = 20;
-const db = pgp(`postgres://jase:keeppushing@localhost:5432/udecide`);
+console.log(process.env)
+const db = pgp(`postgres://${process.env.SETTLIT_USER}:${process.env.SETTLIT_PWD}@${process.env.U_DECIDE_IP}/u_decide`);
+// need to set up connection without local host
 export default async function handler (req, res) {
   if (req.method === 'GET') {
     const api = req.query.info.split('-')
     console.log(api, req.body)
-    const userInfo = await db.query(`SELECT * FROM settlit WHERE username = '${api[0]}' AND password = '${api[1]}';`);
+    const userInfo = await db.query(`SELECT * FROM settl_it WHERE username = '${api[0]}' AND password = '${api[1]}';`);
     if (userInfo.length === 0) {
       res.send('login-error')
     } else {
