@@ -1,5 +1,4 @@
-
-export const numberSequence = (second = 0) => {
+const numberSequence = (second = 0) => {
   var count = 0;
   const go = () => {
     count++;
@@ -14,3 +13,5 @@ export const numberSequence = (second = 0) => {
   };
   return go()
   };
+
+  export default numberSequence;
