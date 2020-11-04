@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../styles/settl.module.css';
 
 import dynamic from 'next/dynamic';
-const App = dynamic(import('../app.jsx'));
+const App = dynamic(import('../pages/settl-it/app.jsx'));
 const Player2Info = dynamic(import('./Player2Info'))
 
 export default class Player2 extends React.Component {

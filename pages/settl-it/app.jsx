@@ -1,20 +1,20 @@
 import React from 'react';
-import styles from './styles/settl.module.css';
+import styles from '../../styles/settl.module.css';
 import axios from 'axios';
 
 import dynamic from 'next/dynamic';
-const Main = dynamic(() => import('./components/Main.jsx'));
-const Login1 = dynamic(() => import('./components/Login1.jsx'));
-const Login2 = dynamic(() => import('./components/Login2.jsx'));
-const Player1 = dynamic(() => import('./components/Player1.jsx'));
-const Player2 = dynamic(() => import('./components/Player2.jsx'));
+const Main = dynamic(() => import('../../components/Main.jsx'));
+const Login1 = dynamic(() => import('../../components/Login1.jsx'));
+const Login2 = dynamic(() => import('../../components/Login2.jsx'));
+const Player1 = dynamic(() => import('../../components/Player1.jsx'));
+const Player2 = dynamic(() => import('../../components/Player2.jsx'));
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user1: [{}, []],
-      user2: [{}, []],
+      user1: [{}, [{}]],
+      user2: [{}, [{}]],
       ply1Ready: false,
       ply1Guess: null,
       ply2Ready: false,

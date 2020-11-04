@@ -6,10 +6,10 @@ dayjs.extend(relativeTime)
 
 const Player1Info = ({info}) => {
   const player = {
-    username: info[0].username,
+    username: info[0].username || 'anon',
     wins: 1076,
     rating: 10.5,
-    todos: info[1]
+    todos: info[1] || [{}]
   }
 
   return (
