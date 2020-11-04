@@ -13,8 +13,8 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user1: false,
-      user2: false,
+      user1: [{}, []],
+      user2: [{}, []],
       ply1Ready: false,
       ply1Guess: null,
       ply2Ready: false,
@@ -80,6 +80,8 @@ export default class App extends React.Component {
   agreeToTask(task1, task2) {
     if (task1) {
       this.setState({ task1 });
+    } else if (task2) {
+      this.setState({ task2 })
     }
     console.log(this.state.task1)
   };
@@ -112,13 +114,13 @@ export default class App extends React.Component {
   };
 
   player1() {
-    return this.state.user1 !== false ?
+    return this.state.user1[0].username ?
       <Player1 info={this.state.user1} agree={this.agreeToTask} gameValues={this.state.gameValues} isReady={this.isReady} /> :
       <Login1 logIn={this.logIn}/>
   };
 
   player2() {
-    return this.state.user2 !== false ?
+    return this.state.user2[0].username ?
       <Player2 info={this.state.user2} agree={this.agreeToTask} gameValues={this.state.gameValues} isReady={this.isReady} /> :
       <Login2 logIn={this.logIn}/>
   };
