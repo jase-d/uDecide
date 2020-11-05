@@ -61,9 +61,8 @@ export default class App extends React.Component {
         this.roundLoser.user_id = this.state.user1[0]['user_id'];
         alert(this.state.task1);
       };
-      console.log(this.state.task1);
-      const confirmation = await axios.post(`http://localhost:3000/api/router`, { body: this.roundLoser })
-      this.setState({score1: '', score2: ''});
+      const confirmation = await axios.post(`/api/router`, { body: this.roundLoser });
+      await this.setState({score1: '', score2: ''});
     };
   };
 
@@ -81,9 +80,8 @@ export default class App extends React.Component {
     if (task1) {
       this.setState({ task1 });
     } else if (task2) {
-      this.setState({ task2 })
-    }
-    console.log(this.state.task1)
+      this.setState({ task2 });
+    };
   };
 
   logIn(info, player) {
@@ -93,7 +91,7 @@ export default class App extends React.Component {
     } else {
       this.setState({ user2: info });
       this.player2();
-    }
+    };
   };
 
   isReady(player, values) {
